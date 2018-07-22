@@ -26,6 +26,7 @@ provider:
   stage: ${self:custom.secrets.NODE_ENV}
   region: us-east-2
   environment: 
+    JWT_SECRET: ${self:custom.secrets.JWT_SECRET}
     NODE_ENV: ${self:custom.secrets.NODE_ENV}
     DB: ${self:custom.secrets.DB}
 
@@ -62,7 +63,7 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 
-functions:
+functions:                
   app:
     handler: server.run
     events:
